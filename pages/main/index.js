@@ -9,10 +9,12 @@ Page({
     inputContent: '',
     todoArray: [
       { todoId: 1, todo: 'P1.1 执行数据库脚本 张XX 10min', checked: false, 
-      lineStyle: 'none', disable: false, color: '#333333'},
+      lineStyle: 'none', color: '#333333'},
       { todoId: 0, todo: 'P1.2 生产环境代码发布 李XX 5min', checked: false, 
-      lineStyle: 'none', disable: false, color: '#333333'},
+      lineStyle: 'none', color: '#333333'},
     ],
+
+    specialTxt: '###',
   },
 
   // 整理todoArray 把checked为true的放到列表后面
@@ -23,11 +25,17 @@ Page({
 
     // 设置点击的那个item为选中，并且移动到最下面
     var item = dealArray.splice(index, 1)
-    item[0].checked = true
-    item[0].lineStyle = 'line-through'
-    item[0].disable = true
-    item[0].color = '#aaaaaa'
-    dealArray = dealArray.concat(item)
+    if (item[0].checked == true) {
+      item[0].checked = false
+      item[0].lineStyle = 'none'
+      item[0].color = '#333333'
+      dealArray = dealArray.concat(item)
+    } else {
+      item[0].checked = true
+      item[0].lineStyle = 'line-through'
+      item[0].color = '#aaaaaa'
+      dealArray = dealArray.concat(item)
+    }
 
     this.sortArray(dealArray)
   },
@@ -58,9 +66,20 @@ Page({
   // 待添加的todo内容输入框事件
   inputEvent: function(e) {
     var value = e.detail.value
+    this.custom(value)
     this.setData({
       inputContent: value
     })
+  },
+
+  // 监听输入框事件，当是特殊符号的时候启动自定义事件
+  custom: function(value) {
+    var index = value.indexOf(this.data.specialTxt)
+    if (index >= 0) {
+      wx.navigateTo({
+        url: '../custom/index',
+      })
+    }
   },
 
   submit: function(e) {
@@ -71,8 +90,8 @@ Page({
       return
     }
 
-    value = value.replace("草莓", "猪")
-    value = value.replace("母鸡", "猪") 
+    value = value.replace("草莓老头", "小可爱")
+    value = value.replace("小母鸡", "小可爱") 
     var dealArray = this.data.todoArray.concat([{ todoId: length, todo: value, checked: false }])
     this.sortArray(dealArray)
     this.setData({
@@ -94,7 +113,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**

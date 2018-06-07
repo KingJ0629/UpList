@@ -1,0 +1,25 @@
+/* pages/second/second.wxss */
+
+#eventInput {
+  position: absolute;
+  bottom: 0rpx;
+  color: #000;
+  height: 100rpx;
+  text-align: left;
+  width: 80%;
+  padding-left: 20rpx;
+  vertical-align: middle;
+}
+
+#eventBtn {
+  width: 20%;
+  right: 0rpx;
+  position: absolute;
+  bottom: 0rpx;
+}
+
+.checkbox {
+  vertical-align: middle;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}

@@ -34,6 +34,11 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    
+    customArray: [
+      { customId: 1, content: '老母鸡' },
+      { customId: 0, content: '小菜鸡' },
+    ],
   }
 })

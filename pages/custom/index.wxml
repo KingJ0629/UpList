@@ -1,0 +1,12 @@
+<!--second.wxml-->
+<view>
+  <checkbox-group id='{{item.customId}}' bindchange='itemChange' data-index='{{index}}' wx:for="{{array}}" wx:key="{{item.customId}}">
+    <label class="checkbox"  style="display: block;">
+      <checkbox value="{{item.content}}"/>{{item.content}}
+    </label>
+  </checkbox-group>
+  <view>
+    <input id='eventInput' type='text' placeholder='输入 ...' bindconfirm='inputConfirm' bindinput='inputEvent' value='{{inputContent}}'></input>
+    <button bindtap='submitBtn' id='eventBtn'>添加</button>
+  </view>
+</view>
