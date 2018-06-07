@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/second/second",
+    "pages/main/index",
     "pages/index/index",
     "pages/logs/logs"
   ],
