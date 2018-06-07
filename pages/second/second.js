@@ -66,6 +66,11 @@ Page({
   submit: function(e) {
     const length = this.data.todoArray.length
     var value = this.data.inputContent
+
+    if (value == '') {
+      return
+    }
+
     value = value.replace("草莓", "猪")
     value = value.replace("母鸡", "猪") 
     var dealArray = this.data.todoArray.concat([{ todoId: length, todo: value, checked: false }])
