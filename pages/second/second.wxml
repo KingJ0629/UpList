@@ -1,0 +1,13 @@
+<!--second.wxml-->
+<view>
+  <checkbox-group id='{{item.todoId}}' bindchange='itemChange' data-index='{{index}}' wx:for="{{todoArray}}" wx:key="{{item.todoId}}">
+    <label class="checkbox"  style="color: {{item.color}}; display: block; text-decoration:{{item.lineStyle}}">
+      <checkbox style="display: in-line" value="{{item.todo}}" checked="{{item.checked}}" disabled='{{item.disable}}'/>
+      {{item.todo}}
+    </label>
+  </checkbox-group>
+  <view>
+    <input id='eventInput' type='text' placeholder='i want to ...' bindconfirm='inputConfirm' bindinput='inputEvent' value='{{inputContent}}'></input>
+    <button bindtap='submitBtn' id='eventBtn'>添加</button>
+  </view>
+</view>

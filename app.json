@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/second/second",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "To Do",
+    "navigationBarTextStyle":"black"
+  }
+}
