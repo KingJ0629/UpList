@@ -49,8 +49,6 @@ Page({
       return
     }
 
-    value = value.replace("草莓老头", "小可爱")
-    value = value.replace("小母鸡", "小可爱") 
     var dealArray = this.data.array.concat([{ customId: length, content: value }])
     this.setData({
       inputContent: '',

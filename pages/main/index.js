@@ -8,10 +8,8 @@ Page({
     // 待添加的todo内容
     inputContent: '',
     todoArray: [
-      { todoId: 1, todo: 'P1.1 执行数据库脚本 张XX 10min', checked: false, 
-      lineStyle: 'none', color: '#333333'},
-      { todoId: 0, todo: 'P1.2 生产环境代码发布 李XX 5min', checked: false, 
-      lineStyle: 'none', color: '#333333'},
+      { todoId: 1, todo: 'P1.1 执行数据库脚本 张XX 10min', checked: false},
+      { todoId: 0, todo: 'P1.2 生产环境代码发布 李XX 5min', checked: false},
     ],
 
     specialTxt: '###',
@@ -25,17 +23,8 @@ Page({
 
     // 设置点击的那个item为选中，并且移动到最下面
     var item = dealArray.splice(index, 1)
-    if (item[0].checked == true) {
-      item[0].checked = false
-      item[0].lineStyle = 'none'
-      item[0].color = '#333333'
-      dealArray = dealArray.concat(item)
-    } else {
-      item[0].checked = true
-      item[0].lineStyle = 'line-through'
-      item[0].color = '#aaaaaa'
-      dealArray = dealArray.concat(item)
-    }
+    item[0].checked = !item[0].checked
+    dealArray = dealArray.concat(item)
 
     this.sortArray(dealArray)
   },
@@ -90,8 +79,6 @@ Page({
       return
     }
 
-    value = value.replace("草莓老头", "小可爱")
-    value = value.replace("小母鸡", "小可爱") 
     var dealArray = this.data.todoArray.concat([{ todoId: length, todo: value, checked: false }])
     this.sortArray(dealArray)
     this.setData({

@@ -1,9 +1,8 @@
 <!--second.wxml-->
 <view>
   <checkbox-group id='{{item.todoId}}' bindchange='itemChange' data-index='{{index}}' wx:for="{{todoArray}}" wx:key="{{item.todoId}}">
-    <label class="checkbox"  style="color: {{item.color}}; display: block; text-decoration:{{item.lineStyle}}">
-      <checkbox style="display: in-line" value="{{item.todo}}" checked="{{item.checked}}" disabled='{{item.disable}}'/>
-      {{item.todo}}
+    <label class="checkbox" style="color: {{item.checked ? '#aaa' : '#333'}}; display: block; text-decoration:{{item.checked ? 'line-through' : 'none'}}">
+      <checkbox value="{{item.todo}}" checked="{{item.checked}}" /> {{item.todo}}
     </label>
   </checkbox-group>
   <view>
